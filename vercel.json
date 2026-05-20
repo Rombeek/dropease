@@ -1,8 +1,16 @@
 {
   "version": 2,
+  "framework": null,
   "installCommand": "npm install && npm install --prefix webapp",
   "buildCommand": "npm run build --prefix webapp",
+  "outputDirectory": "webapp/dist",
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api" }
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/webhook", "destination": "/api" }
   ]
 }

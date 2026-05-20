@@ -61,8 +61,13 @@ GitHub может попросить логин и пароль. Для паро
 1. Откройте https://vercel.com и войдите через GitHub
 2. Нажмите **Add New…** → **Project**
 3. Найдите репозиторий `dropease` → **Import**
-4. Настройки оставьте как есть — Vercel сам увидит `vercel.json`
+4. Важные настройки на экране импорта:
+   - **Framework Preset** → **Other** (не Vite и не Next.js)
+   - **Root Directory** → оставьте пустым (корень репозитория)
+   - **Build Command** и **Output Directory** подтянутся из `vercel.json` (`webapp/dist`)
 5. **Пока не жмите Deploy** — сначала добавьте переменные (шаг 4)
+
+> Если ошибка про папку `public`: в Vercel → **Settings** → **General** → **Output Directory** очистите поле или укажите `webapp/dist`, затем **Redeploy**.
 
 ---
 
@@ -146,6 +151,15 @@ Vercel **сам** пересоберёт и опубликует новую ве
 ---
 
 ## Частые проблемы
+
+### `No Output Directory named "public" found`
+
+Vercel думает, что это обычный статический сайт. Исправление:
+
+1. **Settings** → **General** → **Framework Preset** → **Other**
+2. **Output Directory** → `webapp/dist` (не `public`)
+3. Убедитесь, что в репозитории есть актуальный `vercel.json`
+4. **Deployments** → **Redeploy**
 
 ### «BOT_TOKEN is required» на Vercel
 
