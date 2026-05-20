@@ -1,0 +1,28 @@
+{
+  "name": "dropease",
+  "version": "0.1.0",
+  "description": "DropEase — Telegram Mini App MVP for dropshipping sellers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:webapp\"",
+    "dev:server": "node --watch server.js",
+    "dev:webapp": "npm run dev --prefix webapp",
+    "build": "npm run build --prefix webapp",
+    "vercel-build": "npm run build --prefix webapp",
+    "start": "node server.js",
+    "setup:webhook": "node scripts/setup-webhook.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "grammy": "^1.35.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

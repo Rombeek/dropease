@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "installCommand": "npm install && npm install --prefix webapp",
+  "buildCommand": "npm run build --prefix webapp",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api" }
+  ]
+}
